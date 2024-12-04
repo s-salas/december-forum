@@ -2,7 +2,6 @@ import cornDog from "./imgs/corndog.jpg";
 import beefWellington from "./imgs/beef-wellington.jpg";
 import crepes from "./imgs/crepes.jpg";
 import simit from "./imgs/simit.jpg";
-import amazonPrimeImg from "./imgs/amazonprime.jpg";
 
 // Categories
 export const categories = [
