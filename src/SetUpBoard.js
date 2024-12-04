@@ -29,12 +29,12 @@ const SetUpBoard = ({ categories, questions, onQuestionClick }) => {
               className="fw-bold"
               style={{
                 fontFamily: "Libre Baskerville",
-                color: "#27496d",
+                color: "#ffffff",
                 textShadow: `
-              0 0 3px #4682b4,
-              0 0 6px #4682b4,
-              0 0 12px #4169e1,
-              0 0 18px #27496D
+              0 0 5px #4682b4,
+              0 0 10px #4682b4,
+              0 0 20px #4169e1,
+              0 0 30px #27496D
               `,
                 fontSize: "2rem",
                 fontWeight: "bold",
