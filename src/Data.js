@@ -1,23 +1,13 @@
-import hocusPocusQuestionImg from "./imgs/hocuspocus-question.jpg";
-import hocusPocusAnswerImg from "./imgs/hocuspocus-answer.jpg";
-import gremlinsQuestionImg from "./imgs/gremlins-question.jpg";
-import gremlinsAnswerImg from "./imgs/gremlins-answer.jpg";
-import silenceOfTheLambsQuestionImg from "./imgs/silenceofthelambs-question.jpg";
-import silenceOfTheLambsAnswerImg from "./imgs/silenceofthelambs-answer.jpg";
-import alienQuestionImg from "./imgs/alien-question.jpg";
-import alienAnswerImg from "./imgs/alien-answer.jpg";
-import cujoQuestionImg from "./imgs/cujo2-question.jpg";
-import cujoAnswerImg from "./imgs/cujo2-answer.jpg";
-import spiceGirlsImg from "./imgs/spicegirls.jpg";
-import holyGuacamoleImg from "./imgs/holy-guacamole.jpg";
-import hawaiianPunchImg from "./imgs/hawaiianpunch.jpg";
-import creativeOutletImg from "./imgs/creativeoutlet.jpg";
+import cornDog from "./imgs/corndog.jpg";
+import beefWellington from "./imgs/beef-wellington.jpg";
+import crepes from "./imgs/crepes.jpg";
+import simit from "./imgs/simit.jpg";
 import amazonPrimeImg from "./imgs/amazonprime.jpg";
 
 // Categories
 export const categories = [
   "Ops",
-  "Writers",
+  "Writer/Manager Trivia",
   "CTO",
   "International Food",
   "SLA",
@@ -27,81 +17,86 @@ export const categories = [
 export const questions = [
   // ops
   [
-    { image: hocusPocusQuestionImg },
-    { image: silenceOfTheLambsQuestionImg },
-    { image: cujoQuestionImg },
-    { image: gremlinsQuestionImg },
-    { image: alienQuestionImg },
+    "Question 1",
+    "Question 2",
+    "Question 3",
+    "Question 4",
+    "Question 5",
   ],
   // writers
   [
     "Which writer has read nearly 100 books so far this year?",
-    "Which character from J.K. Rowling's Harry Potter series is known for her strong magical abilities and is a member of the Gryffindor house?",
-    "Who is the wise old wizard that leads the fellowship in The Lord of the Rings?",
-    "What is the name of the iconic character played by Bette Midler in the 1993 film Hocus Pocus?",
-    "In the Harry Potter series, who is revealed to be the Half-Blood Prince?",
+    "Which writer is a professional singer and guitarist who also plays in a band?",
+    "Who had a previous job as a choreographer?",
+    "Which writer likes to solve 3D puzzles in her spare time?",
+    "Question 5",
   ],
   [
     // cto
-    "What is the name of the urban legend involving a supposed haunted mirror that shows a person's true nature?",
-    "What Mexican urban legend talks of a figure wearing a white dress wandering graveyards or streets looking for her children on Halloween night?",
-    "What is the urban legend that revolves around a cursed object, often a doll, that brings misfortune to its owner?",
-    "In the urban legends from India, what's the name of the spirit that is said to lure men and harm them?",
-    "In which state did the urban legend of the 'Chupacabra,' a creature said to drain the blood of live stock, originate?",
-    // { question: "question 1",
-    // choices: [
-    // "A) ",
-    // "B) ",
-    // "C) ",
-    // "D) "
-    // ],
+    "Question 1",
+    "Question 2",
+    "Question 3",
+    "Question 4",
+    "Question 5",
   ],
   [
     // international food
-    { image: spiceGirlsImg },
-    { image: holyGuacamoleImg },
-    { image: hawaiianPunchImg },
-    { image: creativeOutletImg },
-    { image: amazonPrimeImg },
+    { image: cornDog },
+    { image: beefWellington },
+    { image: crepes },
+    { image: simit },
+    "Question",
   ],
   [
     // sla
-    "question 1",
-    "question 2",
-    "question 3",
-    "question 4",
-    "question 5",
+    "If an impact has an RDD of 12/11 and you start writing on 12/11, by what date should you have this submitted for SME approval?",
+    "If an impact has an RDD of 12/11 and you start writing on 12/17, by what date should you have this submitted for SME approval?",
+    "If an impact has an RDD of 12/11 and you start writing on 12/10, by what date should you have this submitted for SME approval?",
+    "If an impact has an RDD of 12/12 and you start writing on 12/12, by what date should you have this submitted for SME approval?",
+    "If an impact has an RDD of 12/16 and you start writing on 12/17, by what date should you have this submitted for SME approval?",
   ],
 ];
 
 // Answers
 export const answers = [
+  // ops
   [
-    // ops
-    { image: hocusPocusAnswerImg },
-    { image: silenceOfTheLambsAnswerImg },
-    { image: cujoAnswerImg },
-    { image: gremlinsAnswerImg },
-    { image: alienAnswerImg },
+    "Answer 1", 
+    "Answer 2", 
+    "Answer 3", 
+    "Answer 4", 
+    "Answer 5"
   ],
   [
     // writers
     "Mary",
-    "Hermione Granger",
-    "Gandalf",
-    "Winifred Sanderson",
-    "Severus Snape",
+    "Allwyn",
+    "Antonio",
+    "Meetali",
+    "Answer",
   ],
   // cto
-  ["Bloody Mary", "La Llorona", "Annabelle", "Chudail", "Puerto Rico"],
+  [
+    "Answer 1", 
+    "Answer 2", 
+    "Answer 3", 
+    "Answer 4", 
+    "Answer 5"
+  ],
   [
     // international food
-    "Spice Girls",
-    "Holy guacamole!",
-    "Hawaiian Punch",
-    "Creative outlet",
-    "Amazon Prime",
+    "USA",
+    "England",
+    "France",
+    "Turkey",
+    "Answer",
   ],
   // sla
-  ["answer 1", "answer 2", "answer 3", "answer 4", "answer 5"],
+  [
+    "Before end of day on 12/17", 
+    "Before end of day on 12/17", 
+    "Before end of day on 12/16", 
+    "Before end of day on 12/17", 
+    "Before end of day on 12/17"
+  ],
 ];
