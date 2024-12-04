@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const SetUpBoard = ({ categories, questions, onQuestionClick }) => {
   // State to track which questions have been clicked
@@ -12,7 +12,7 @@ const SetUpBoard = ({ categories, questions, onQuestionClick }) => {
     onQuestionClick(catIndex, points, questionId);
 
     // Update the clicked state for the specific question
-    setClickedQuestions(prevState => {
+    setClickedQuestions((prevState) => {
       const updatedState = [...prevState];
       updatedState[catIndex][questionId] = true;
       return updatedState;
@@ -25,7 +25,23 @@ const SetUpBoard = ({ categories, questions, onQuestionClick }) => {
       <div className="row text-center mb-4">
         {categories.map((category, catIndex) => (
           <div key={catIndex} className="col">
-            <h2 style={{ fontFamily: "Metal Mania" }}>{category}</h2>
+            <h2
+              className="fw-bold"
+              style={{
+                fontFamily: "Libre Baskerville",
+                color: "#27496d",
+                textShadow: `
+              0 0 3px #4682b4,
+              0 0 6px #4682b4,
+              0 0 12px #4169e1,
+              0 0 18px #27496D
+              `,
+                fontSize: "2rem",
+                fontWeight: "bold",
+              }}
+            >
+              {category}
+            </h2>
           </div>
         ))}
       </div>
@@ -42,10 +58,10 @@ const SetUpBoard = ({ categories, questions, onQuestionClick }) => {
                 <p
                   className="fs-4 mx-0 mb-1 p-2"
                   style={{
-                    margin: '0.1rem',
-                    backgroundColor: isClicked ? '#696969' : 'black',
-                    color: 'white',
-                    cursor: 'pointer'
+                    margin: "0.1rem",
+                    backgroundColor: isClicked ? "#696969" : "#4682b4",
+                    color: "white",
+                    cursor: "pointer",
                   }}
                   onClick={() => handleQuestionClick(catIndex, questionId)}
                 >

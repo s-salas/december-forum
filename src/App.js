@@ -49,13 +49,8 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <h1
-        className="text-center mt-4 mb-4"
-        style={{ fontFamily: "Metal Mania", fontSize: "72px" }}
-      >
-        Halloween Trivia!
-      </h1>
+    <div className="container mt-4">
+
       <SetUpBoard
         categories={categories}
         questions={questions}

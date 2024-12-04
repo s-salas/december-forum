@@ -27,17 +27,24 @@ const QuestionModal = ({
       <div 
         className="modal-dialog" 
         role="document"
-        style={{ maxWidth: "50%", width: "100%" }}
+        style={{ 
+          maxWidth: "50%", 
+          width: "100%",
+        }}
       >
         <div 
           className="modal-content"
-          style={{ backgroundColor: "rgb(218, 113, 0)" }}
+          style={{ 
+            backgroundColor: "#4682b4", 
+            border: "2px solid #27496d",
+            borderRadius: "8px", 
+          }}
         >
           <div className="modal-header">
-            <h5 className="modal-title" style={{ fontFamily: "Metal Mania", fontSize: "32px" }}>
+            <h5 className="modal-title fw-semibold" style={{ fontFamily: "Libre Baskerville", fontSize: "32px", color: "#ffffff" }}>
               {category} for {points} points
             </h5>
-            <button type="button" className="close" onClick={onClose}>
+            <button type="button" className="close" style={{ fontFamily: "Libre Baskerville" }} onClick={onClose}>
               <span>&times;</span>
             </button>
           </div>
@@ -46,7 +53,7 @@ const QuestionModal = ({
             {!showAnswer && (
               <div>
                 {typeof question === "string" ? (
-                  <p className="fs-4 fw-semibold" style={{ fontFamily: "Arial" }}>{question}</p>
+                  <p className="fs-4" style={{ fontFamily: "Libre Baskerville", color: "#ffffff" }}>{question}</p>
                 ) : question.image ? (
                   <img
                     src={question.image}
@@ -55,10 +62,10 @@ const QuestionModal = ({
                   />
                 ) : (
                   <div>
-                    <p className="fs-4 fw-semibold" style={{ fontFamily: "Arial" }}>{question.question}</p>
+                    <p className="fs-4" style={{ fontFamily: "Libre Baskerville" }}>{question.question}</p>
                     <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
                       {question.choices.map((choice, index) => (
-                        <li className="fs-4 fw-semibold" style={{ fontFamily: "Arial" }} key={index}>{choice}</li>
+                        <li className="fs-4" style={{ fontFamily: "Libre Baskerville" }} key={index}>{choice}</li>
                       ))}
                     </ul>
                   </div>
@@ -70,7 +77,7 @@ const QuestionModal = ({
             {showAnswer && (
               <div>
                 {Array.isArray(answer) ? (
-                  <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+                  <ul style={{ listStyleType: "none", paddingLeft: 0, fontFamily: "Libre Baskerville", color: "#ffffff" }}>
                     {answer.map((ans, index) => (
                       <li key={index}>{ans}</li>
                     ))}
@@ -78,7 +85,7 @@ const QuestionModal = ({
                 ) : typeof answer === "object" && answer.image ? (
                   <img src={answer.image} alt="Answer visual" className="answer-image mb-2" />
                 ) : (
-                  <p className="fs-3 fw-semibold text-center mt-5 mb-5" style={{ fontFamily: "Arial" }}>{answer}</p>
+                  <p className="fs-3 fw-semibold text-center mt-5 mb-5" style={{ fontFamily: "Libre Baskerville", color: "#ffffff" }}>{answer}</p>
                 )}
               </div>
             )}
@@ -90,6 +97,7 @@ const QuestionModal = ({
                   <button
                     key={index}
                     className="btn btn-dark mx-1"
+                    style={{ fontFamily: "Libre Baskerville" }}
                     onClick={() => addPoints(player.name)}
                   >
                     {player.name}
@@ -100,11 +108,11 @@ const QuestionModal = ({
           </div>
           <div className="modal-footer">
             {!showAnswer && (
-              <button className="btn btn-dark" onClick={handleShowAnswer}>
+              <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville" }} onClick={handleShowAnswer}>
                 Show Answer
               </button>
             )}
-            <button className="btn btn-dark" onClick={onClose}>
+            <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville" }} onClick={onClose}>
               Close
             </button>
           </div>

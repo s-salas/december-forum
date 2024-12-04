@@ -25,7 +25,7 @@ function SetUpPlayers({ updatePlayers }) {
                         onChange={handleNewPlayer}
                     />
                 </label>
-                <button type="submit" className="btn btn-dark mx-2">+ Add player</button>
+                <button type="submit" className="btn mx-2 fw-semibold" style={{ backgroundColor: "#4682b4", color: "#ffffff", fontFamily: "Libre Baskerville" }}>+ Add player</button>
             </form>
         </div>
     );
