@@ -2,6 +2,7 @@ import cornDog from "./imgs/corndog.jpg";
 import beefWellington from "./imgs/beef-wellington.jpg";
 import crepes from "./imgs/crepes.jpg";
 import simit from "./imgs/simit.jpg";
+import tamales from "./imgs/tamales.jpg";
 
 // Categories
 export const categories = [
@@ -41,10 +42,10 @@ export const questions = [
   [
     // international food
     { image: cornDog },
+    { image: tamales },
     { image: beefWellington },
     { image: crepes },
     { image: simit },
-    "Question",
   ],
   [
     // sla
@@ -86,10 +87,10 @@ export const answers = [
   [
     // international food
     "USA",
+    "Mexico",
     "England",
     "France",
     "Turkey",
-    "Answer",
   ],
   // sla
   [

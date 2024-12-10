@@ -32,7 +32,7 @@ const QuestionModal = ({
         style={{
           maxWidth: "50%",
           width: "100%",
-          marginTop: "70px"
+          marginTop: "100px",
         }}
       >
         <div
@@ -88,11 +88,11 @@ const QuestionModal = ({
                     src={question.image}
                     alt="Question visual"
                     className="question-image mb-2"
-                    style={{ 
-                      maxWidth: "600px", 
+                    style={{
+                      maxWidth: "600px",
                       width: "100%",
-                      display: "block",  // Makes the image a block element
-      margin: "0 auto"   // Centers the image horizontally
+                      display: "block", // Makes the image a block element
+                      margin: "0 auto", // Centers the image horizontally
                     }}
                   />
                 ) : (
@@ -109,7 +109,10 @@ const QuestionModal = ({
                     <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
                       {question.choices.map((choice, index) => (
                         <li
-                          style={{ fontFamily: "Libre Baskerville", fontSize: "28px" }}
+                          style={{
+                            fontFamily: "Libre Baskerville",
+                            fontSize: "28px",
+                          }}
                           key={index}
                         >
                           {choice}
@@ -123,54 +126,53 @@ const QuestionModal = ({
 
             {/* Show the answer when showAnswer is true */}
             {showAnswer && (
-  <div>
-    {Array.isArray(answer) ? (
-      <ul
-        style={{
-          listStyleType: "none",
-          paddingLeft: 0,
-          fontFamily: "Libre Baskerville",
-          fontSize: "28px",
-          color: "#ffffff",
-        }}
-      >
-        {answer.map((ans, index) => (
-          <li key={index}>
-            {ans.split("\n").map((line, lineIndex) => (
-              <p key={lineIndex} style={{ whiteSpace: "pre-wrap" }}>
-                {line}
-              </p>
-            ))}
-          </li>
-        ))}
-      </ul>
-    ) : typeof answer === "object" && answer.image ? (
-      <img
-        src={answer.image}
-        alt="Answer visual"
-        className="answer-image mb-2"
-        style={{ 
-          maxWidth: "600px", 
-          width: "100%",
-          display: "block",  // Makes the image a block element
-          margin: "0 auto"   // Centers the image horizontally
-           }}
-      />
-    ) : (
-      <p
-        className="text-center mt-5 mb-5"
-        style={{
-          fontFamily: "Libre Baskerville",
-          fontSize: "28px",
-          color: "#ffffff",
-          whiteSpace: "pre-wrap"
-        }}
-      >
-        {answer}
-      </p>
-    )}
-  </div>
-
+              <div>
+                {Array.isArray(answer) ? (
+                  <ul
+                    style={{
+                      listStyleType: "none",
+                      paddingLeft: 0,
+                      fontFamily: "Libre Baskerville",
+                      fontSize: "28px",
+                      color: "#ffffff",
+                    }}
+                  >
+                    {answer.map((ans, index) => (
+                      <li key={index}>
+                        {ans.split("\n").map((line, lineIndex) => (
+                          <p key={lineIndex} style={{ whiteSpace: "pre-wrap" }}>
+                            {line}
+                          </p>
+                        ))}
+                      </li>
+                    ))}
+                  </ul>
+                ) : typeof answer === "object" && answer.image ? (
+                  <img
+                    src={answer.image}
+                    alt="Answer visual"
+                    className="answer-image mb-2"
+                    style={{
+                      maxWidth: "600px",
+                      width: "100%",
+                      display: "block", // Makes the image a block element
+                      margin: "0 auto", // Centers the image horizontally
+                    }}
+                  />
+                ) : (
+                  <p
+                    className="text-center mt-5 mb-5"
+                    style={{
+                      fontFamily: "Libre Baskerville",
+                      fontSize: "28px",
+                      color: "#ffffff",
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
+                    {answer}
+                  </p>
+                )}
+              </div>
             )}
 
             {/* Team buttons to add points */}
