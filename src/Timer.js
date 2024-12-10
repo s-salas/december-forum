@@ -51,9 +51,9 @@ function Timer() {
       </span>
       <br />
       <div className="d-flex justify-content-between gap-2">
-      <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville" }} onClick={handleStart}>Start</button>
-      <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville" }} onClick={handleStop}>Stop</button>
-      <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville" }} onClick={handleReset}>Reset</button>
+      <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville", fontSize: "20px" }} onClick={handleStart}>Start</button>
+      <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville", fontSize: "20px" }} onClick={handleStop}>Stop</button>
+      <button className="btn fw-semibold" style={{ backgroundColor: "#27496d", color: "#ffffff", fontFamily: "Libre Baskerville", fontSize: "20px" }} onClick={handleReset}>Reset</button>
       </div>
     </div>
   );

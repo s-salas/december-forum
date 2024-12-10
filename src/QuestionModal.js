@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Timer from './Timer'; // Or the appropriate path
+import React, { useState } from "react";
+import Timer from "./Timer"; // Or the appropriate path
 
 const QuestionModal = ({
   category,
@@ -42,7 +42,7 @@ const QuestionModal = ({
             borderRadius: "8px",
           }}
         >
-          <div className="modal-header">
+          <div className="modal-header d-flex justify-content-between align-items-center">
             <h5
               className="modal-title fw-semibold"
               style={{
@@ -56,21 +56,27 @@ const QuestionModal = ({
             <button
               type="button"
               className="btn fw-semibold"
-              style={{ backgroundColor: "#4682b4", color: "#ffffff", fontFamily: "Libre Baskerville", fontSize: "20px" }}
+              style={{
+                backgroundColor: "#4682b4",
+                color: "#ffffff",
+                fontFamily: "Libre Baskerville",
+                fontSize: "24px",
+              }}
               onClick={onClose}
             >
               <span>&times;</span>
             </button>
           </div>
+
           <div className="modal-body">
             {/* Only show the question if showAnswer is false */}
             {!showAnswer && (
               <div>
                 {typeof question === "string" ? (
                   <p
-                    className="fs-4"
                     style={{
                       fontFamily: "Libre Baskerville",
+                      fontSize: "28px",
                       color: "#ffffff",
                     }}
                   >
@@ -86,7 +92,10 @@ const QuestionModal = ({
                   <div>
                     <p
                       className="fs-4"
-                      style={{ fontFamily: "Libre Baskerville" }}
+                      style={{
+                        fontFamily: "Libre Baskerville",
+                        fontSize: "28px",
+                      }}
                     >
                       {question.question}
                     </p>
@@ -115,11 +124,14 @@ const QuestionModal = ({
                       listStyleType: "none",
                       paddingLeft: 0,
                       fontFamily: "Libre Baskerville",
+                      fontSize: "28px",
                       color: "#ffffff",
                     }}
                   >
                     {answer.map((ans, index) => (
-                      <li key={index} style={{ whiteSpace: "pre-wrap" }}>{ans}</li>
+                      <li key={index} style={{ whiteSpace: "pre-wrap" }}>
+                        {ans}
+                      </li>
                     ))}
                   </ul>
                 ) : typeof answer === "object" && answer.image ? (
@@ -130,9 +142,10 @@ const QuestionModal = ({
                   />
                 ) : (
                   <p
-                    className="fs-3 fw-semibold text-center mt-5 mb-5"
+                    className="fw-semibold text-center mt-5 mb-5"
                     style={{
                       fontFamily: "Libre Baskerville",
+                      fontSize: "28px",
                       color: "#ffffff",
                     }}
                   >
@@ -150,7 +163,10 @@ const QuestionModal = ({
                     <button
                       key={index}
                       className="btn btn-dark mx-1"
-                      style={{ fontFamily: "Libre Baskerville" }}
+                      style={{
+                        fontFamily: "Libre Baskerville",
+                        fontSize: "20px",
+                      }}
                       onClick={() => addPoints(team.name, points)} // Pass correct team name and points
                     >
                       {team.name}
@@ -170,6 +186,8 @@ const QuestionModal = ({
                       backgroundColor: "#27496d",
                       color: "#ffffff",
                       fontFamily: "Libre Baskerville",
+                      fontSize: "20px",
+                      marginTop: "26px",
                     }}
                     onClick={handleShowAnswer}
                   >

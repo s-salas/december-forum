@@ -18,7 +18,6 @@ const App = () => {
     { name: "Team 3", points: 0, players: [] },
     { name: "Team 4", points: 0, players: [] },
   ]);
-  
 
   // Handle opening modal with relevant question data
   const handleShowModal = (catIndex, points, questionId) => {
@@ -54,20 +53,16 @@ const App = () => {
       })
     );
   };
-  
-  
 
   const updateTeamPoints = (teamName, points) => {
-    setTeams(prevTeams =>
-      prevTeams.map(team =>
+    setTeams((prevTeams) =>
+      prevTeams.map((team) =>
         team.name === teamName
           ? { ...team, points: team.points + points }
           : team
       )
     );
   };
-  
-  
 
   return (
     <div className="container mt-5">

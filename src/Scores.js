@@ -65,7 +65,7 @@ function Scores({ teams, updateTeamPlayers }) {
                   className="fw-bold"
                   style={{
                     fontFamily: "Libre Baskerville",
-                    fontSize: "32px",
+                    fontSize: "28px",
                     color: "#27496d",
                   }}
                 >
@@ -75,7 +75,17 @@ function Scores({ teams, updateTeamPlayers }) {
                 {/* Display players under the team */}
                 <div className="mb-3">
                   {players.map((player, playerIndex) => (
-                    <p key={playerIndex} className="fw-bold">
+                    <p
+                      key={playerIndex}
+                      className="fw-bold"
+                      style={{
+                        fontFamily: "Libre Baskerville",
+                        color: "#27496d",
+                        fontSize: "20px",
+                        margin: "0", // Remove default margin
+                        paddingBottom: "4px", // Optional: add some space between player names
+                      }}
+                    >
                       {player.name}
                     </p>
                   ))}
@@ -83,20 +93,20 @@ function Scores({ teams, updateTeamPlayers }) {
 
                 {/* Add Player Section */}
                 <div className="mt-3">
-                  <input
-                    type="text"
-                    className="form-control mb-2"
-                    placeholder="Enter new player..."
-                    value={teamPlayers[team.name]}
-                    onChange={(event) => handlePlayerNameChange(event, team.name)}
-                  />
-                  <button
-                    type="submit"
-                    className="btn btn-primary w-100"
-                    onClick={(event) => handleAddPlayer(event, team.name)}
-                  >
-                    Add Player
-                  </button>
+                  <form onSubmit={(event) => handleAddPlayer(event, team.name)}>
+                    <input
+                      type="text"
+                      className="form-control mb-2"
+                      placeholder="Enter new player..."
+                      value={teamPlayers[team.name]}
+                      onChange={(event) =>
+                        handlePlayerNameChange(event, team.name)
+                      }
+                    />
+                    <button type="submit" className="btn btn-primary w-100">
+                      Add Player
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
