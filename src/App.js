@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import QuestionModal from "./QuestionModal";
 import SetUpBoard from "./SetUpBoard";
-import SetUpPlayers from "./SetUpPlayers";
 import Scores from "./Scores";
 import { categories, questions, answers } from "./Data";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,8 +12,15 @@ const App = () => {
   const [currentPoints, setCurrentPoints] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [currentAnswer, setCurrentAnswer] = useState("");
-  const [players, setPlayers] = useState([]);
+  const [teams, setTeams] = useState([
+    { name: "Team 1", points: 0, players: [] },
+    { name: "Team 2", points: 0, players: [] },
+    { name: "Team 3", points: 0, players: [] },
+    { name: "Team 4", points: 0, players: [] },
+  ]);
+  
 
+  // Handle opening modal with relevant question data
   const handleShowModal = (catIndex, points, questionId) => {
     if (
       catIndex < categories.length &&
@@ -30,33 +36,49 @@ const App = () => {
     }
   };
 
+  // Handle closing modal
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
-  const updatePlayers = (newPlayers) => {
-    setPlayers(newPlayers);
+  const updateTeamPlayers = (teamName, playerName) => {
+    setTeams((prevTeams) =>
+      prevTeams.map((team) => {
+        if (team.name === teamName) {
+          return {
+            ...team,
+            players: [...(team.players || []), { name: playerName, points: 0 }],
+          };
+        }
+        return team;
+      })
+    );
   };
+  
+  
 
-  const updatePlayerPoints = (playerName) => {
-    setPlayers((prevPlayers) =>
-      prevPlayers.map((player) =>
-        player.name === playerName
-          ? { ...player, points: player.points + currentPoints }
-          : player
+  const updateTeamPoints = (teamName, points) => {
+    setTeams(prevTeams =>
+      prevTeams.map(team =>
+        team.name === teamName
+          ? { ...team, points: team.points + points }
+          : team
       )
     );
   };
+  
+  
 
   return (
     <div className="container mt-5">
-
+      {/* Set up the board with categories and questions */}
       <SetUpBoard
         categories={categories}
         questions={questions}
         onQuestionClick={handleShowModal}
       />
 
+      {/* Modal to display question */}
       {showModal && (
         <QuestionModal
           category={currentCategory}
@@ -64,13 +86,13 @@ const App = () => {
           question={currentQuestion}
           answer={currentAnswer}
           onClose={handleCloseModal}
-          players={players}
-          updatePlayerPoints={updatePlayerPoints}
+          teams={teams}
+          updateTeamPoints={updateTeamPoints}
         />
       )}
 
-      <Scores players={players} />
-      <SetUpPlayers updatePlayers={updatePlayers} />
+      {/* Display scores */}
+      <Scores teams={teams} updateTeamPlayers={updateTeamPlayers} />
     </div>
   );
 };

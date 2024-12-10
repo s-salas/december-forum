@@ -16,11 +16,11 @@ export const categories = [
 export const questions = [
   // ops
   [
-    "Question 1",
-    "Question 2",
-    "Question 3",
-    "Question 4",
-    "Question 5",
+    "If an Ops procedure has an 'Overview' section at the top, what should we proactively change this to?",
+    "If SME, Legal and Controls approvals are required in Change Manager, what approvals do we bypass for a Link Only?",
+    "What are the capitalization requirements for PRG titles?",
+    "What are the mandatory Taxonomy fields found in the DDF?",
+    "What are the two things that you should avoid using in the Important things to know section?",
   ],
   // writers
   [
@@ -32,11 +32,11 @@ export const questions = [
   ],
   [
     // cto
-    "Question 1",
-    "Question 2",
-    "Question 3",
-    "Question 4",
-    "Question 5",
+    "When creating a bulleted list in CTO procedures, what is the minimum number of bullets the list should have?",
+    "For CTO procedures, where is the one place chunking is used?",
+    "Each topic that contains action steps should begin with a what?",
+    "What can a small text (h4) topic title begin with?",
+    "What do you enter in the Summary of Changes field in Change Manager for REF documents - content publish only?",
   ],
   [
     // international food
@@ -60,11 +60,11 @@ export const questions = [
 export const answers = [
   // ops
   [
-    "Answer 1", 
-    "Answer 2", 
-    "Answer 3", 
-    "Answer 4", 
-    "Answer 5"
+    "Important things to know", 
+    "Legal and Controls", 
+    "All words are capitalized unless using connecting words like for, from, of, etc.", 
+    "Organization, Content Type and Article Group", 
+    "- Process or action steps in this section; consider section in 'How do I'\n- Remember statements; all information in 'Important things to know' are reminders and there is no need to double remind by starting with 'Remember'"
   ],
   [
     // writers
@@ -76,11 +76,11 @@ export const answers = [
   ],
   // cto
   [
-    "Answer 1", 
-    "Answer 2", 
-    "Answer 3", 
-    "Answer 4", 
-    "Answer 5"
+    "Two", 
+    "What's new section", 
+    "A statement that introduces the steps", 
+    "Verb or noun", 
+    "New or Modify"
   ],
   [
     // international food
