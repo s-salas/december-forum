@@ -25,10 +25,10 @@ export const questions = [
   // writers
   [
     "Which writer has read nearly 100 books so far this year?",
+    "Which writer has a pug named Rue?",
     "Which writer is a professional singer and guitarist who also plays in a band?",
     "Who had a previous job as a choreographer?",
     "Which writer likes to solve 3D puzzles in her spare time?",
-    "Question 5",
   ],
   [
     // cto
@@ -69,6 +69,7 @@ export const answers = [
   [
     // writers
     "Mary",
+    "Luis",
     "Allwyn",
     "Antonio",
     "Meetali",
