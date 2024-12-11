@@ -1,31 +1,43 @@
 import React, { useState } from "react";
 
 function Scores({ teams, updateTeamPlayers }) {
-  // Separate state for each team’s player input
-  const [teamPlayers, setTeamPlayers] = useState({
-    Team1: "",
-    Team2: "",
-    Team3: "",
-    Team4: "",
-  });
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [editedName, setEditedName] = useState("");
+  const [newPlayerName, setNewPlayerName] = useState({}); // Tracks new player names by team
 
-  // Handle changes to player name inputs for each team
-  const handlePlayerNameChange = (event, teamName) => {
-    setTeamPlayers({
-      ...teamPlayers,
-      [teamName]: event.target.value,
-    });
+  const handleNameClick = (teamIndex, playerIndex) => {
+    setEditingIndex({ teamIndex, playerIndex });
+    setEditedName(teams[teamIndex].players[playerIndex].name);
   };
 
-  const handleAddPlayer = (event, teamName) => {
-    event.preventDefault();
-    const playerName = teamPlayers[teamName].trim();
+  const handleNameChange = (event) => {
+    setEditedName(event.target.value);
+  };
+
+  const handleNameSave = (teamIndex, playerIndex) => {
+    if (editedName.trim()) {
+      const updatedTeams = [...teams];
+      updatedTeams[teamIndex].players[playerIndex].name = editedName.trim();
+      updateTeamPlayers(updatedTeams);
+      setEditingIndex(null);
+      setEditedName("");
+    }
+  };
+
+  const handleNewPlayerChange = (event, teamIndex) => {
+    setNewPlayerName((prev) => ({
+      ...prev,
+      [teamIndex]: event.target.value,
+    }));
+  };
+
+  const handleAddPlayer = (teamIndex) => {
+    const playerName = newPlayerName[teamIndex]?.trim();
     if (playerName) {
-      updateTeamPlayers(teamName, playerName); // Add player to team
-      setTeamPlayers({
-        ...teamPlayers,
-        [teamName]: "", // Clear input field after adding player
-      });
+      const updatedTeams = [...teams];
+      updatedTeams[teamIndex].players.push({ name: playerName });
+      updateTeamPlayers(updatedTeams);
+      setNewPlayerName((prev) => ({ ...prev, [teamIndex]: "" })); // Reset input field
     }
   };
 
@@ -47,71 +59,89 @@ function Scores({ teams, updateTeamPlayers }) {
         Scores:
       </h2>
       <div className="row text-center mb-2">
-        {teams.map((team, index) => {
-          // Ensure that team.players is an array before mapping over it
-          const players = Array.isArray(team.players) ? team.players : [];
-
-          return (
-            <div key={index} className="col-6 col-md-4 col-lg-3 mb-4">
-              <div
-                className="p-3"
+        {teams.map((team, teamIndex) => (
+          <div key={teamIndex} className="col-6 col-md-4 col-lg-3 mb-4">
+            <div
+              className="p-3"
+              style={{
+                backgroundColor: "#f0f8ff",
+                borderRadius: "8px",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              <p
+                className="fw-bold"
                 style={{
-                  backgroundColor: "#f0f8ff",
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  fontFamily: "Libre Baskerville",
+                  fontSize: "28px",
+                  color: "#27496d",
                 }}
               >
-                <p
-                  className="fw-bold"
-                  style={{
-                    fontFamily: "Libre Baskerville",
-                    fontSize: "28px",
-                    color: "#27496d",
+                {team.name}: {team.points} Points
+              </p>
+              <div className="mb-3">
+                {team.players.map((player, playerIndex) => (
+                  <p
+                    key={playerIndex}
+                    className="fw-bold"
+                    style={{
+                      fontFamily: "Libre Baskerville",
+                      color: "#27496d",
+                      fontSize: "20px",
+                      margin: "0",
+                      paddingBottom: "2px",
+                    }}
+                  >
+                    {editingIndex &&
+                    editingIndex.teamIndex === teamIndex &&
+                    editingIndex.playerIndex === playerIndex ? (
+                      <input
+                        type="text"
+                        value={editedName}
+                        onChange={handleNameChange}
+                        onBlur={() =>
+                          handleNameSave(teamIndex, playerIndex)
+                        }
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter") {
+                            handleNameSave(teamIndex, playerIndex);
+                          }
+                        }}
+                        className="form-control"
+                        autoFocus
+                      />
+                    ) : (
+                      <span onClick={() => handleNameClick(teamIndex, playerIndex)}>
+                        {player.name}
+                      </span>
+                    )}
+                  </p>
+                ))}
+              </div>
+              {/* Add New Player Section */}
+              <div className="mt-3">
+                <input
+                  type="text"
+                  placeholder="Enter new player..."
+                  value={newPlayerName[teamIndex] || ""}
+                  onChange={(event) => handleNewPlayerChange(event, teamIndex)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      handleAddPlayer(teamIndex);
+                    }
                   }}
+                  className="form-control mb-2"
+                />
+                <button
+                  onClick={() => handleAddPlayer(teamIndex)}
+                  className="btn btn-primary w-100"
                 >
-                  {team.name}: {team.points} Points
-                </p>
-
-                {/* Display players under the team */}
-                <div className="mb-3">
-                  {players.map((player, playerIndex) => (
-                    <p
-                      key={playerIndex}
-                      className="fw-bold"
-                      style={{
-                        fontFamily: "Libre Baskerville",
-                        color: "#27496d",
-                        fontSize: "20px",
-                        margin: "0", // Remove default margin
-                        paddingBottom: "2px", // Optional: add some space between player names
-                      }}
-                    >
-                      {player.name}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Add Player Section */}
-                <div className="mt-3">
-                  <form onSubmit={(event) => handleAddPlayer(event, team.name)}>
-                    <input
-                      type="text"
-                      className="form-control mb-2"
-                      placeholder="Enter new player..."
-                      value={teamPlayers[team.name]}
-                      onChange={(event) =>
-                        handlePlayerNameChange(event, team.name)
-                      }
-                    />
-                    <button type="submit" className="btn btn-primary w-100">
-                      Add Player
-                    </button>
-                  </form>
-                </div>
+                  Add Player
+                </button>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );
