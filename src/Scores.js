@@ -83,7 +83,7 @@ function Scores({ teams, updateTeamPlayers }) {
                         color: "#27496d",
                         fontSize: "20px",
                         margin: "0", // Remove default margin
-                        paddingBottom: "4px", // Optional: add some space between player names
+                        paddingBottom: "2px", // Optional: add some space between player names
                       }}
                     >
                       {player.name}
